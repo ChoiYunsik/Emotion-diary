@@ -17,15 +17,21 @@ import Edit from "./pages/Edit";
 const mockData = [
   {
     id: 1,
-    createdDate: new Date().getTime,
+    createdDate: new Date("2025-12-04").getTime(),
     emotionId: 1,
     content: "1번 일기 내용",
   },
   {
     id: 2,
-    createdDate: new Date().getTime,
+    createdDate: new Date("2025-12-03").getTime(),
     emotionId: 2,
     content: "2번 일기 내용",
+  },
+  {
+    id: 3,
+    createdDate: new Date("2025-11-11").getTime(),
+    emotionId: 3,
+    content: "3번 일기 내용",
   },
 ];
 
@@ -44,8 +50,8 @@ function reducer(state, action) {
   }
 }
 
-const DiaryStateContext = createContext();
-const DiaryDispatchContext = createContext();
+export const DiaryStateContext = createContext();
+export const DiaryDispatchContext = createContext();
 
 function App() {
   const [data, dispatch] = useReducer(reducer, mockData);
@@ -84,31 +90,6 @@ function App() {
 
   return (
     <>
-      {/* <Header
-        title={"Header"}
-        leftChild={<Button text={"Left"} />}
-        rightChild={<Button text={"Right"} />}
-      />
-      <Button
-        text={"123"}
-        onClick={() => {
-          console.log("123번 버튼 클릭");
-        }}
-      />
-      <Button
-        text={"123"}
-        type={"POSITVE"}
-        onClick={() => {
-          console.log("123번 버튼 클릭");
-        }}
-      />
-      <Button
-        text={"123"}
-        type={"NEGATIVE"}
-        onClick={() => {
-          console.log("123번 버튼 클릭");
-        }}
-      /> */}
       <DiaryStateContext.Provider value={data}>
         <DiaryDispatchContext.Provider value={{ onCreate, OnUpdate, OnDelete }}>
           <Routes>
