@@ -1,12 +1,13 @@
-import "./DiaryList.css";
+import "./DiaryItem.css";
 import getEmotionImage from "../util/get-emotion-image";
 import Button from "./Button";
 
 const DiaryItem = () => {
+  const emotionId = 4;
   return (
     <div className="DiaryItem">
-      <div className="img_section">
-        <img src={getEmotionImage(1)} />
+      <div className={`img_section img_section_${emotionId}`}>
+        <img src={getEmotionImage(emotionId)} />
       </div>
       <div className="info_section">
         <div className="created_date">{new Date().toLocaleDateString()}</div>
