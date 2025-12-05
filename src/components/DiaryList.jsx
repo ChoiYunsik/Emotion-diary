@@ -38,7 +38,7 @@ const DiaryList = ({ data }) => {
             nav("/new");
           }}
           text={"새 일기 쓰기"}
-          type={"POSITVE"}
+          type={"POSITIVE"}
         />
       </div>
       <div className="list_wrapper">
