@@ -23,7 +23,9 @@ const DiaryItem = ({ id, emotionId, createdDate, content }) => {
         className="info_section"
       >
         <div className="created_date">
-          {new Date(createdDate).toLocaleDateString()}
+          {new Date(createdDate).toLocaleDateString(undefined, {
+            timeZone: "UTC",
+          })}
         </div>
         <div className="content">{content}</div>
       </div>
